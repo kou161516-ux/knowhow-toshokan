@@ -57,7 +57,18 @@ export default async function Home({
       </section>
 
       <section className="mb-10">
-        <h2 className="text-lg font-bold mb-3">カテゴリから探す</h2>
+        <div className="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+          <h2 className="text-lg font-bold">カテゴリから探す</h2>
+          <p className="text-sm text-gray-600">
+            現在
+            <span className="mx-1 font-bold text-orange-600 text-base">
+              {articles.length.toLocaleString()}
+            </span>
+            記事を投稿中（
+            <span className="font-semibold text-gray-700">{categories.length}</span>
+            カテゴリ）
+          </p>
+        </div>
         <div className="flex flex-wrap gap-2">
           <Link
             href={buildHref({ category: null })}
