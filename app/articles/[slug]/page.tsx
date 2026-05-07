@@ -1,3 +1,4 @@
+import React, { Fragment } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articles } from "@/data/articles";
@@ -30,6 +31,24 @@ function splitContentForInsertion(content: string) {
   };
 }
 
+function renderInline(text: string): React.ReactNode {
+  const parts = text.split(/(\*\*[^*]+\*\*)/);
+  if (parts.length === 1) return text;
+  return (
+    <>
+      {parts.map((part, i) =>
+        part.startsWith("**") && part.endsWith("**") ? (
+          <strong key={i} className="font-semibold text-gray-900">
+            {part.slice(2, -2)}
+          </strong>
+        ) : (
+          part
+        )
+      )}
+    </>
+  );
+}
+
 function renderMarkdown(md: string) {
   const blocks = md.split(/\n\n+/);
   return blocks.map((b, i) => {
@@ -43,9 +62,44 @@ function renderMarkdown(md: string) {
         </h2>
       );
     }
+
+    const lines = b.split("\n").filter((l) => l.trim());
+
+    // 箇条書きリスト（- item）
+    if (lines.length > 0 && lines.every((l) => l.trim().startsWith("- "))) {
+      return (
+        <ul key={i} className="list-disc list-outside ml-5 space-y-1 my-4 text-gray-700">
+          {lines.map((l, j) => (
+            <li key={j} className="leading-relaxed">
+              {renderInline(l.replace(/^-\s+/, ""))}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+
+    // 番号付きリスト（1. item）
+    if (lines.length > 0 && lines.every((l) => /^\d+\.\s/.test(l.trim()))) {
+      return (
+        <ol key={i} className="list-decimal list-outside ml-5 space-y-1 my-4 text-gray-700">
+          {lines.map((l, j) => (
+            <li key={j} className="leading-relaxed">
+              {renderInline(l.replace(/^\d+\.\s+/, ""))}
+            </li>
+          ))}
+        </ol>
+      );
+    }
+
+    // 通常段落（複数行・太字対応）
     return (
-      <p key={i} className="text-gray-700 leading-relaxed my-4 whitespace-pre-wrap">
-        {b}
+      <p key={i} className="text-gray-700 leading-relaxed my-4">
+        {lines.map((line, j) => (
+          <Fragment key={j}>
+            {j > 0 && <br />}
+            {renderInline(line)}
+          </Fragment>
+        ))}
       </p>
     );
   });
