@@ -15,6 +15,10 @@ import { articlesBatchB } from "./articles-batch-b";
 import { articlesBatchC } from "./articles-batch-c";
 import { articlesBatchD } from "./articles-batch-d";
 import { articlesRibleCity } from "./articles-riblecity";
+import { articlesBatchE } from "./articles-batch-e";
+import { articlesBatchF } from "./articles-batch-f";
+import { articlesBatchG } from "./articles-batch-g";
+import { articlesBatchH } from "./articles-batch-h";
 
 export const articles: Article[] = [
   ...articlesBatch2,
@@ -23,6 +27,10 @@ export const articles: Article[] = [
   ...articlesBatchC,
   ...articlesBatchD,
   ...articlesRibleCity,
+  ...articlesBatchE,
+  ...articlesBatchF,
+  ...articlesBatchG,
+  ...articlesBatchH,
 ];
 
 export const allArticles = articles;
