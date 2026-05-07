@@ -23,6 +23,12 @@ import { articlesBatchI } from "./articles-batch-i";
 import { articlesBatchJ } from "./articles-batch-j";
 import { articlesBatchK } from "./articles-batch-k";
 import { articlesBatchL } from "./articles-batch-l";
+import { articlesBatchM } from "./articles-batch-m";
+import { articlesBatchN } from "./articles-batch-n";
+import { articlesBatchO } from "./articles-batch-o";
+import { articlesBatchP } from "./articles-batch-p";
+import { articlesBatchQ } from "./articles-batch-q";
+import { articlesBatchR } from "./articles-batch-r";
 
 export const articles: Article[] = [
   ...articlesBatch2,
@@ -39,6 +45,12 @@ export const articles: Article[] = [
   ...articlesBatchJ,
   ...articlesBatchK,
   ...articlesBatchL,
+  ...articlesBatchM,
+  ...articlesBatchN,
+  ...articlesBatchO,
+  ...articlesBatchP,
+  ...articlesBatchQ,
+  ...articlesBatchR,
 ];
 
 export const allArticles = articles;
