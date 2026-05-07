@@ -79,16 +79,10 @@ export const AFFILIATES = {
   ],
   bousai: [
     {
-      name: "Amazon防災グッズ特集",
-      desc: "防災リュック・非常食・携帯トイレなど防災用品が充実",
-      url: "https://amzn.to/XXXXXX1",
-      label: "防災グッズを見る",
-    },
-    {
-      name: "楽天防災グッズ",
-      desc: "ポイントで買える防災用品。送料無料商品も多数",
-      url: "https://a.r10.to/XXXXXX5",
-      label: "防災グッズを探す",
+      name: "BOS 非常用トイレ 50回分（防臭袋付き）",
+      desc: "元消防職員として家族4人の最低基準。断水72時間を越える備え",
+      url: "https://amzn.to/bos-toilet-50",
+      label: "詳細を見る",
     },
   ],
   education: [
@@ -142,6 +136,186 @@ export const AFFILIATES = {
     },
   ],
 };
+
+export type BousaiProductKey =
+  | "toilet"
+  | "power"
+  | "bag"
+  | "water"
+  | "food"
+  | "light";
+
+export type BousaiProduct = {
+  key: BousaiProductKey;
+  name: string;
+  spec: string;
+  keywords: string[];
+  conclusion: string;
+  failure: string;
+  finalAdvice: string;
+  url: string;
+  label: string;
+};
+
+export const BOUSAI_PRODUCTS: Record<BousaiProductKey, BousaiProduct> = {
+  toilet: {
+    key: "toilet",
+    name: "BOS 非常用トイレ 50回分（防臭袋付き）",
+    spec: "凝固剤＋防臭袋50回分／家族4人で約2〜3日分",
+    keywords: [
+      "断水",
+      "トイレ",
+      "簡易トイレ",
+      "下水",
+      "排泄",
+      "在宅避難",
+      "マンション防災",
+    ],
+    conclusion:
+      "元消防職員として、断水で最初に困るのはトイレです。まずは家族4人で2〜3日分にあたる50回分以上を1セット用意してください。",
+    failure:
+      "実際に多かった失敗は、10〜20回分を買って『足りなかった』という後悔。1人1日5〜7回×日数で計算すると、想像より早く底をつきます。",
+    finalAdvice:
+      "迷ったら、まずこの50回分を1セット。これだけで断水72時間の最大の不安が消えます。",
+    url: "https://amzn.to/bos-toilet-50",
+    label: "Amazonで詳細を見る",
+  },
+  power: {
+    key: "power",
+    name: "Jackery ポータブル電源 708Wh（家庭の冷蔵庫＋スマホ対応）",
+    spec: "708Wh／冷蔵庫(150W)約4時間＋スマホ60回充電目安",
+    keywords: [
+      "停電",
+      "電源",
+      "ポータブル電源",
+      "ブレーカー",
+      "通電",
+      "雪害",
+      "凍結",
+      "豪雪",
+    ],
+    conclusion:
+      "家庭用なら『冷蔵庫＋スマホ』が最低限動く容量を優先してください。500Wh以下では冷蔵庫を維持できず、食料が傷み始めます。",
+    failure:
+      "実際に多かった失敗は、200〜300Whの軽量モデルを買って冷蔵庫が動かず後悔するケース。スマホだけならモバイルバッテリーで足ります。",
+    finalAdvice:
+      "迷ったら708Whクラスを1台。冷蔵庫が半日動けば、停電の不安はほとんど消えます。",
+    url: "https://amzn.to/jackery-708",
+    label: "Amazonで詳細を見る",
+  },
+  bag: {
+    key: "bag",
+    name: "山善 防災リュック 30点セット（1人用・撥水）",
+    spec: "30品目／単品で買い揃えるより1万円以上お得",
+    keywords: [
+      "防災リュック",
+      "必需品",
+      "持ち出し",
+      "一人暮らしの防災",
+      "防災訓練",
+      "ハザードマップ",
+      "避難場所",
+      "地震",
+      "火災",
+      "家具の固定",
+      "オフィス防災",
+      "帰宅困難",
+      "津波",
+      "竜巻",
+      "突風",
+      "ペット",
+      "高齢者",
+      "防災ヘルメット",
+    ],
+    conclusion:
+      "元消防職員として、最初の1セットは『中身が選定済みの完成品』を買うのが結局いちばん早いです。揃えるのに迷う時間で、実装が止まるからです。",
+    failure:
+      "実際に多かった失敗は、1品ずつ買い集めて結局未完成のまま被災するケース。完成品をベースに、足りない物だけ後で足すのが現実的です。",
+    finalAdvice:
+      "迷ったらこの30点セットを家族人数分。届いた日から備えが完了します。",
+    url: "https://amzn.to/yamazen-bag-30",
+    label: "Amazonで詳細を見る",
+  },
+  water: {
+    key: "water",
+    name: "アサヒ おいしい水 天然水 2L×6本×3箱（保存水）",
+    spec: "1人1日3L×3日×家族人数の最小基準",
+    keywords: [
+      "水",
+      "保存水",
+      "ローリングストック",
+      "備蓄",
+      "在宅避難",
+    ],
+    conclusion:
+      "1人1日3L×3日が最小基準です。家族4人なら36L、つまり2L×18本が最低ライン。",
+    failure:
+      "実際に多かった失敗は、5年保存水を買い込んで賞味期限を切らすケース。普段飲める2L水のローリングストックの方が、結局続きます。",
+    finalAdvice:
+      "迷ったらまず2L×6本×3箱を1セット。普段飲みながら回せば、備蓄が習慣になります。",
+    url: "https://amzn.to/asahi-water-2l",
+    label: "Amazonで詳細を見る",
+  },
+  food: {
+    key: "food",
+    name: "尾西食品 アルファ米 12種類セット（5年保存・水で戻る）",
+    spec: "12食／水でも戻る／お湯で15分・水で60分",
+    keywords: [
+      "非常食",
+      "食料",
+      "アルファ米",
+      "備蓄食",
+      "保存食",
+    ],
+    conclusion:
+      "非常食は『水でも戻る』が最重要です。停電下ではお湯が沸かせない時間帯が必ず発生します。",
+    failure:
+      "実際に多かった失敗は、レトルトばかり買って加熱できず冷たいまま食べるケース。子どもが食べないこともあります。",
+    finalAdvice:
+      "迷ったら尾西のアルファ米12種を家族人数×3日分。味の選択肢があるだけで、被災時の精神的負担が大きく違います。",
+    url: "https://amzn.to/onisi-alpha-12",
+    label: "Amazonで詳細を見る",
+  },
+  light: {
+    key: "light",
+    name: "GENTOS LEDランタン EX-V777D（両手が空くタイプ・1000ルーメン）",
+    spec: "明るさ1000lm／連続点灯約8時間／吊り下げ・自立両対応",
+    keywords: [
+      "ライト",
+      "ランタン",
+      "明かり",
+      "懐中電灯",
+      "防災ラジオ",
+      "情報",
+    ],
+    conclusion:
+      "停電時は『両手が空くランタン』が最優先です。懐中電灯では作業も子どものケアもできません。",
+    failure:
+      "実際に多かった失敗は、100均ライトで凌ごうとして電池切れと暗さで動けなくなるケース。最低500ルーメン以上を選んでください。",
+    finalAdvice:
+      "迷ったらGENTOSの1000ルーメン1台を寝室・リビング・玄関の3箇所に分散配置。停電直後の動線が確保できます。",
+    url: "https://amzn.to/gentos-ex-v777d",
+    label: "Amazonで詳細を見る",
+  },
+};
+
+export function detectBousaiProduct(input: {
+  title: string;
+  slug: string;
+  content: string;
+}): BousaiProduct {
+  const text = `${input.title} ${input.slug} ${input.content}`;
+  let best: { product: BousaiProduct; score: number } | null = null;
+  for (const product of Object.values(BOUSAI_PRODUCTS)) {
+    let score = 0;
+    for (const kw of product.keywords) {
+      if (text.includes(kw)) score += 1;
+      if (input.title.includes(kw)) score += 2;
+    }
+    if (score > 0 && (!best || score > best.score)) best = { product, score };
+  }
+  return best?.product ?? BOUSAI_PRODUCTS.bag;
+}
 
 export const MY_SITES = [
   {

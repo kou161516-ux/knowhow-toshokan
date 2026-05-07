@@ -1,6 +1,54 @@
-import { AFFILIATES, MY_SITES } from "@/lib/affiliates";
+import { AFFILIATES, MY_SITES, type BousaiProduct } from "@/lib/affiliates";
 
 type AffiliateKey = keyof typeof AFFILIATES;
+
+type BousaiPlacement = "conclusion" | "failure" | "final";
+
+const PLACEMENT_LABEL: Record<BousaiPlacement, string> = {
+  conclusion: "まず結論",
+  failure: "実際に多かった失敗",
+  final: "迷ったらこれ",
+};
+
+export function BousaiRecommendBox({
+  product,
+  placement,
+}: {
+  product: BousaiProduct;
+  placement: BousaiPlacement;
+}) {
+  const body =
+    placement === "conclusion"
+      ? product.conclusion
+      : placement === "failure"
+        ? product.failure
+        : product.finalAdvice;
+  return (
+    <div className="my-8 p-5 bg-amber-50 border border-amber-200 rounded-xl">
+      <p className="text-xs text-amber-700 font-bold mb-3">
+        🛡 {PLACEMENT_LABEL[placement]}（元消防職員・防災士の判断）
+      </p>
+      <p className="text-gray-800 text-sm leading-relaxed mb-4 whitespace-pre-wrap">
+        {body}
+      </p>
+      <div className="bg-white rounded-lg p-4 shadow-sm border border-amber-100">
+        <p className="font-bold text-gray-900 text-sm mb-1">{product.name}</p>
+        <p className="text-gray-500 text-xs mb-3">{product.spec}</p>
+        <a
+          href={product.url}
+          target="_blank"
+          rel="noopener noreferrer sponsored"
+          className="inline-block bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors"
+        >
+          {product.label}
+        </a>
+      </div>
+      <p className="text-xs text-gray-400 mt-3">
+        ※本記事にはプロモーションが含まれています
+      </p>
+    </div>
+  );
+}
 
 export function AffiliateBox({ keys }: { keys: AffiliateKey[] }) {
   const items = keys.flatMap((k) => AFFILIATES[k] || []);

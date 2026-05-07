@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articles } from "@/data/articles";
-import { CATEGORY_AFFILIATE_MAP } from "@/lib/affiliates";
-import { AffiliateBox, MySiteBox } from "@/components/AffiliateBox";
+import { CATEGORY_AFFILIATE_MAP, detectBousaiProduct } from "@/lib/affiliates";
+import {
+  AffiliateBox,
+  BousaiRecommendBox,
+  MySiteBox,
+} from "@/components/AffiliateBox";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -56,12 +60,20 @@ export default async function ArticlePage({ params }: Props) {
   const article = articles.find((a) => a.slug === slug);
   if (!article) notFound();
 
-  const affKeys = CATEGORY_AFFILIATE_MAP[article.category] || [];
-  const { first, second } = splitContentForInsertion(article.content);
-
   const isBousai = article.category === "防災・安全";
   const careerCategories = ["仕事効率化", "学習"];
   const isCareer = careerCategories.includes(article.category);
+
+  const affKeys = isBousai ? [] : CATEGORY_AFFILIATE_MAP[article.category] || [];
+  const { first, second } = splitContentForInsertion(article.content);
+
+  const bousaiProduct = isBousai
+    ? detectBousaiProduct({
+        title: article.title,
+        slug: article.slug,
+        content: article.content,
+      })
+    : null;
 
   return (
     <article className="max-w-3xl mx-auto bg-white rounded-2xl border border-gray-200 p-6 sm:p-10">
@@ -79,13 +91,23 @@ export default async function ArticlePage({ params }: Props) {
         {article.excerpt}
       </p>
 
+      {bousaiProduct && (
+        <BousaiRecommendBox product={bousaiProduct} placement="conclusion" />
+      )}
+
       <div className="prose-content">{renderMarkdown(first)}</div>
 
-      {affKeys.length > 0 && <AffiliateBox keys={affKeys} />}
+      {bousaiProduct && (
+        <BousaiRecommendBox product={bousaiProduct} placement="failure" />
+      )}
+      {!bousaiProduct && affKeys.length > 0 && <AffiliateBox keys={affKeys} />}
 
       {second && <div className="prose-content">{renderMarkdown(second)}</div>}
 
-      {affKeys.length > 0 && <AffiliateBox keys={affKeys} />}
+      {bousaiProduct && (
+        <BousaiRecommendBox product={bousaiProduct} placement="final" />
+      )}
+      {!bousaiProduct && affKeys.length > 0 && <AffiliateBox keys={affKeys} />}
 
       {isBousai && <MySiteBox category="bousai" />}
       {isCareer && <MySiteBox category="career" />}
