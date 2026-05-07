@@ -79,9 +79,9 @@ export const AFFILIATES = {
   ],
   bousai: [
     {
-      name: "BOS 非常用トイレ 50回分（防臭袋付き）",
+      name: "驚異の防臭袋 BOS 非常用トイレ Bセット 50回分",
       desc: "元消防職員として家族4人の最低基準。断水72時間を越える備え",
-      url: "https://amzn.to/bos-toilet-50",
+      url: "https://www.amazon.co.jp/dp/B088BKW851?tag=kouminsaiyo-22",
       label: "詳細を見る",
     },
   ],
@@ -160,7 +160,7 @@ export type BousaiProduct = {
 export const BOUSAI_PRODUCTS: Record<BousaiProductKey, BousaiProduct> = {
   toilet: {
     key: "toilet",
-    name: "BOS 非常用トイレ 50回分（防臭袋付き）",
+    name: "驚異の防臭袋 BOS 非常用トイレ Bセット 50回分",
     spec: "凝固剤＋防臭袋50回分／家族4人で約2〜3日分",
     keywords: [
       "断水",
@@ -177,12 +177,12 @@ export const BOUSAI_PRODUCTS: Record<BousaiProductKey, BousaiProduct> = {
       "実際に多かった失敗は、10〜20回分を買って『足りなかった』という後悔。1人1日5〜7回×日数で計算すると、想像より早く底をつきます。",
     finalAdvice:
       "迷ったら、まずこの50回分を1セット。これだけで断水72時間の最大の不安が消えます。",
-    url: "https://amzn.to/bos-toilet-50",
+    url: "https://www.amazon.co.jp/dp/B088BKW851?tag=kouminsaiyo-22",
     label: "Amazonで詳細を見る",
   },
   power: {
     key: "power",
-    name: "Jackery ポータブル電源 708Wh（家庭の冷蔵庫＋スマホ対応）",
+    name: "Jackery ポータブル電源 708（708Wh）",
     spec: "708Wh／冷蔵庫(150W)約4時間＋スマホ60回充電目安",
     keywords: [
       "停電",
@@ -200,12 +200,12 @@ export const BOUSAI_PRODUCTS: Record<BousaiProductKey, BousaiProduct> = {
       "実際に多かった失敗は、200〜300Whの軽量モデルを買って冷蔵庫が動かず後悔するケース。スマホだけならモバイルバッテリーで足ります。",
     finalAdvice:
       "迷ったら708Whクラスを1台。冷蔵庫が半日動けば、停電の不安はほとんど消えます。",
-    url: "https://amzn.to/jackery-708",
+    url: "https://www.amazon.co.jp/dp/B093V5VJ6N?tag=kouminsaiyo-22",
     label: "Amazonで詳細を見る",
   },
   bag: {
     key: "bag",
-    name: "山善 防災リュック 30点セット（1人用・撥水）",
+    name: "山善 避難用アイテム30点セット 防災リュック YBG-30R",
     spec: "30品目／単品で買い揃えるより1万円以上お得",
     keywords: [
       "防災リュック",
@@ -233,12 +233,12 @@ export const BOUSAI_PRODUCTS: Record<BousaiProductKey, BousaiProduct> = {
       "実際に多かった失敗は、1品ずつ買い集めて結局未完成のまま被災するケース。完成品をベースに、足りない物だけ後で足すのが現実的です。",
     finalAdvice:
       "迷ったらこの30点セットを家族人数分。届いた日から備えが完了します。",
-    url: "https://amzn.to/yamazen-bag-30",
+    url: "https://www.amazon.co.jp/dp/B07D28ZXP3?tag=kouminsaiyo-22",
     label: "Amazonで詳細を見る",
   },
   water: {
     key: "water",
-    name: "アサヒ おいしい水 天然水 2L×6本×3箱（保存水）",
+    name: "アイリスオーヤマ 長期保存水 2L×6本（5年保存）",
     spec: "1人1日3L×3日×家族人数の最小基準",
     keywords: [
       "水",
@@ -248,17 +248,17 @@ export const BOUSAI_PRODUCTS: Record<BousaiProductKey, BousaiProduct> = {
       "在宅避難",
     ],
     conclusion:
-      "1人1日3L×3日が最小基準です。家族4人なら36L、つまり2L×18本が最低ライン。",
+      "1人1日3L×3日が最小基準です。家族4人なら2L×18本が最低ライン。3箱まとめ買いで備蓄完了です。",
     failure:
       "実際に多かった失敗は、5年保存水を買い込んで賞味期限を切らすケース。普段飲める2L水のローリングストックの方が、結局続きます。",
     finalAdvice:
       "迷ったらまず2L×6本×3箱を1セット。普段飲みながら回せば、備蓄が習慣になります。",
-    url: "https://amzn.to/asahi-water-2l",
+    url: "https://www.amazon.co.jp/dp/B09F6KG6VQ?tag=kouminsaiyo-22",
     label: "Amazonで詳細を見る",
   },
   food: {
     key: "food",
-    name: "尾西食品 アルファ米 12種類セット（5年保存・水で戻る）",
+    name: "尾西食品 アルファ米 12種類全部セット（5年保存）",
     spec: "12食／水でも戻る／お湯で15分・水で60分",
     keywords: [
       "非常食",
@@ -273,12 +273,12 @@ export const BOUSAI_PRODUCTS: Record<BousaiProductKey, BousaiProduct> = {
       "実際に多かった失敗は、レトルトばかり買って加熱できず冷たいまま食べるケース。子どもが食べないこともあります。",
     finalAdvice:
       "迷ったら尾西のアルファ米12種を家族人数×3日分。味の選択肢があるだけで、被災時の精神的負担が大きく違います。",
-    url: "https://amzn.to/onisi-alpha-12",
+    url: "https://www.amazon.co.jp/dp/B06XZM1RGH?tag=kouminsaiyo-22",
     label: "Amazonで詳細を見る",
   },
   light: {
     key: "light",
-    name: "GENTOS LEDランタン EX-V777D（両手が空くタイプ・1000ルーメン）",
+    name: "GENTOS LEDランタン EX-109D（両手が空くタイプ・1000ルーメン）",
     spec: "明るさ1000lm／連続点灯約8時間／吊り下げ・自立両対応",
     keywords: [
       "ライト",
@@ -294,7 +294,7 @@ export const BOUSAI_PRODUCTS: Record<BousaiProductKey, BousaiProduct> = {
       "実際に多かった失敗は、100均ライトで凌ごうとして電池切れと暗さで動けなくなるケース。最低500ルーメン以上を選んでください。",
     finalAdvice:
       "迷ったらGENTOSの1000ルーメン1台を寝室・リビング・玄関の3箇所に分散配置。停電直後の動線が確保できます。",
-    url: "https://amzn.to/gentos-ex-v777d",
+    url: "https://www.amazon.co.jp/dp/B0C6N1SHP1?tag=kouminsaiyo-22",
     label: "Amazonで詳細を見る",
   },
 };
