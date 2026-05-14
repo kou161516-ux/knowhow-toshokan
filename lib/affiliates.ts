@@ -117,6 +117,44 @@ export const AFFILIATES = {
       label: "料金プランを見る",
     },
   ],
+  rakuten: [
+    {
+      name: "楽天市場 防災グッズ",
+      desc: "防災リュック・非常食・ポータブル電源など防災用品が充実",
+      url: "https://rpx.a8.net/svt/ejp?a8mat=4AZSSX+AVR8TU+2HOM+BW8O1&rakuten=y&a8ejpredirect=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E9%98%B2%E7%81%BD%E3%82%B0%E3%83%83%E3%82%BA%2F",
+      label: "楽天市場で探す",
+    },
+    {
+      name: "楽天市場 非常食・保存食",
+      desc: "5年・10年保存の非常食・保存水が豊富に揃う",
+      url: "https://rpx.a8.net/svt/ejp?a8mat=4AZSSX+AVR8TU+2HOM+BW8O1&rakuten=y&a8ejpredirect=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%E9%9D%9E%E5%B8%B8%E9%A3%9F%2F",
+      label: "楽天市場で探す",
+    },
+    {
+      name: "楽天カード",
+      desc: "年会費永年無料。楽天ポイントがザクザク貯まる",
+      url: "https://rpx.a8.net/svt/ejp?a8mat=4AZSSX+AVR8TU+2HOM+BW8O1&rakuten=y&a8ejpredirect=https%3A%2F%2Fcard.rakuten.co.jp%2F",
+      label: "申し込む（無料）",
+    },
+    {
+      name: "楽天モバイル",
+      desc: "最強プラン。データ使い放題で月額3,278円〜",
+      url: "https://rpx.a8.net/svt/ejp?a8mat=4AZSSX+AVR8TU+2HOM+BW8O1&rakuten=y&a8ejpredirect=https%3A%2F%2Fnetwork.mobile.rakuten.co.jp%2F",
+      label: "料金を確認する",
+    },
+    {
+      name: "楽天でんき",
+      desc: "楽天ポイントが貯まる・使える電気サービス",
+      url: "https://rpx.a8.net/svt/ejp?a8mat=4AZSSX+AVR8TU+2HOM+BW8O1&rakuten=y&a8ejpredirect=https%3A%2F%2Fenergy.rakuten.co.jp%2F",
+      label: "詳細を見る",
+    },
+    {
+      name: "楽天証券",
+      desc: "手数料無料。楽天ポイントで投資信託が買える",
+      url: "https://rpx.a8.net/svt/ejp?a8mat=4AZSSX+AVR8TU+2HOM+BW8O1&rakuten=y&a8ejpredirect=https%3A%2F%2Fwww.rakuten-sec.co.jp%2F",
+      label: "口座開設（無料）",
+    },
+  ],
 };
 
 export const MY_SITES = [
@@ -154,18 +192,18 @@ export const MY_SITES = [
 
 export const CATEGORY_AFFILIATE_MAP: Record<string, (keyof typeof AFFILIATES)[]> = {
   "仕事効率化": ["web", "education"],
-  "お金の知識": ["insurance"],
+  "お金の知識": ["insurance", "rakuten"],
   "健康管理": ["bousai", "family"],
-  "料理": ["food"],
+  "料理": ["food", "rakuten"],
   "住まい・掃除": ["housing", "moving"],
   "育児・家族": ["family", "bousai"],
   "学習": ["education"],
   "デジタル活用": ["web", "education"],
   "人間関係": ["education"],
-  "防災・安全": ["bousai"],
-  "お金の基本・節約": ["insurance", "moving", "housing"],
+  "防災・安全": ["bousai", "rakuten"],
+  "お金の基本・節約": ["insurance", "moving", "housing", "rakuten"],
   "副業・収入増": ["education", "web"],
-  "投資入門": ["insurance"],
+  "投資入門": ["insurance", "rakuten"],
   "節税・確定申告": ["insurance"],
   "マインド・習慣": ["education"],
 };
