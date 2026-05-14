@@ -2,8 +2,12 @@ import { AFFILIATES, MY_SITES } from "@/lib/affiliates";
 
 type AffiliateKey = keyof typeof AFFILIATES;
 
+function isLiveUrl(url: string) {
+  return !url.includes("XXXXX");
+}
+
 export function AffiliateBox({ keys }: { keys: AffiliateKey[] }) {
-  const items = keys.flatMap((k) => AFFILIATES[k] || []);
+  const items = keys.flatMap((k) => AFFILIATES[k] || []).filter((item) => isLiveUrl(item.url));
   if (items.length === 0) return null;
   return (
     <div className="my-8 p-5 bg-amber-50 border border-amber-200 rounded-xl">

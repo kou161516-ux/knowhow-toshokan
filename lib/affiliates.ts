@@ -81,7 +81,7 @@ export const AFFILIATES = {
     {
       name: "Amazon防災グッズ特集",
       desc: "防災リュック・非常食・携帯トイレなど防災用品が充実",
-      url: "https://amzn.to/XXXXXX1",
+      url: "https://www.amazon.co.jp/s?k=%E9%98%B2%E7%81%BD%E3%82%B0%E3%83%83%E3%82%BA&tag=yoshino-22",
       label: "防災グッズを見る",
     },
     {
