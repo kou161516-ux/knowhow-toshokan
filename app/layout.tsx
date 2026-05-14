@@ -30,8 +30,14 @@ export default function RootLayout({
         </header>
         <main className="max-w-5xl mx-auto px-4 py-8">{children}</main>
         <footer className="border-t border-gray-200 bg-white mt-16">
-          <div className="max-w-5xl mx-auto px-4 py-6 text-center text-xs text-gray-500">
-            © {new Date().getFullYear()} ノウハウ図書館
+          <div className="max-w-5xl mx-auto px-4 py-6 text-center text-xs text-gray-500 space-y-2">
+            <nav className="flex flex-wrap justify-center gap-4">
+              <Link href="/about" className="hover:text-gray-700">運営者情報</Link>
+              <Link href="/privacy" className="hover:text-gray-700">プライバシーポリシー</Link>
+              <Link href="/disclaimer" className="hover:text-gray-700">免責事項</Link>
+              <Link href="/contact" className="hover:text-gray-700">お問い合わせ</Link>
+            </nav>
+            <p>© {new Date().getFullYear()} ノウハウ図書館</p>
           </div>
         </footer>
       </body>
