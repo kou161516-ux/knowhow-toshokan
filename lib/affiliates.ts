@@ -1,144 +1,120 @@
 export const AFFILIATES = {
-  securities: [
-    {
-      name: "SBI証券",
-      desc: "国内最大級のネット証券。NISA・投資信託が充実",
-      url: "https://px.a8.net/svt/ejp?a8mat=XXXXXX1",
-      label: "無料で口座開設する",
-    },
-    {
-      name: "楽天証券",
-      desc: "楽天ポイントで投資できる。使いやすいアプリが人気",
-      url: "https://a.r10.to/XXXXXX1",
-      label: "無料で口座開設する",
-    },
-  ],
-  kakeibo: [
-    {
-      name: "マネーフォワード ME",
-      desc: "銀行・カードを自動連携。資産管理が一目瞭然",
-      url: "https://px.a8.net/svt/ejp?a8mat=XXXXXX2",
-      label: "無料で始める",
-    },
-  ],
-  insurance: [
-    {
-      name: "保険スクエアbang!",
-      desc: "最大51社を一括比較。無料で保険のプロに相談できる",
-      url: "https://px.a8.net/svt/ejp?a8mat=XXXXXX3",
-      label: "無料で一括比較する",
-    },
-    {
-      name: "ほけんの窓口",
-      desc: "全国700店舗。何度でも無料で相談できる",
-      url: "https://px.a8.net/svt/ejp?a8mat=XXXXXX4",
-      label: "近くの店舗を探す",
-    },
-  ],
-  creditcard: [
-    {
-      name: "楽天カード",
-      desc: "年会費永年無料。100円で1ポイント還元率1%",
-      url: "https://a.r10.to/XXXXXX2",
-      label: "今すぐ申し込む",
-    },
-    {
-      name: "三井住友カード(NL)",
-      desc: "対象コンビニ・飲食店で最大7%還元。年会費無料",
-      url: "https://px.a8.net/svt/ejp?a8mat=XXXXXX5",
-      label: "今すぐ申し込む",
-    },
-  ],
-  electricity: [
-    {
-      name: "楽天でんき",
-      desc: "楽天ポイントが貯まる・使える電気",
-      url: "https://a.r10.to/XXXXXX3",
-      label: "料金シミュレーションを見る",
-    },
-    {
-      name: "auでんき",
-      desc: "auスマホとセットでお得。電気代を節約",
-      url: "https://px.a8.net/svt/ejp?a8mat=XXXXXX6",
-      label: "料金を確認する",
-    },
-  ],
-  mobile: [
-    {
-      name: "楽天モバイル",
-      desc: "月額最大3,278円。データ無制限で使えるプランあり",
-      url: "https://a.r10.to/XXXXXX4",
-      label: "料金プランを見る",
-    },
-    {
-      name: "IIJmio",
-      desc: "業界最安水準。2GB 740円〜",
-      url: "https://px.a8.net/svt/ejp?a8mat=XXXXXX7",
-      label: "料金プランを確認する",
-    },
-  ],
   bousai: [
+    {
+      name: "EcoFlow ポータブル電源",
+      desc: "防災・停電対策に。世界最速充電のポータブル電源",
+      url: "https://px.a8.net/svt/ejp?a8mat=4B3GYL+46MOTU+4VA0+631SX",
+      label: "公式サイトを見る",
+    },
+    {
+      name: "アットレスキュー（防災セット）",
+      desc: "国内トップクラスの実績。LA・PITA直営の防災セット",
+      url: "https://px.a8.net/svt/ejp?a8mat=4B3GYL+47TK1E+3ZK2+5Z6WX",
+      label: "防災セットを見る",
+    },
+    {
+      name: "Jackery ポータブル電源",
+      desc: "アウトドア・防災に活躍。大容量で家電も使える",
+      url: "https://px.a8.net/svt/ejp?a8mat=4B3GYL+45FTMA+4NJ4+609HT",
+      label: "製品を見る",
+    },
+    {
+      name: "あかまる防災",
+      desc: "防災士＆消防士監修の充実44点セット",
+      url: "https://px.a8.net/svt/ejp?a8mat=4B3GYL+4784FM+5HQC+5Z6WX",
+      label: "セット内容を確認する",
+    },
     {
       name: "Amazon防災グッズ特集",
       desc: "防災リュック・非常食・携帯トイレなど防災用品が充実",
       url: "https://www.amazon.co.jp/s?k=%E9%98%B2%E7%81%BD%E3%82%B0%E3%83%83%E3%82%BA&tag=yoshino-22",
       label: "防災グッズを見る",
     },
-    {
-      name: "楽天防災グッズ",
-      desc: "ポイントで買える防災用品。送料無料商品も多数",
-      url: "https://a.r10.to/XXXXXX5",
-      label: "防災グッズを探す",
-    },
   ],
-  education: [
+  insurance: [
     {
-      name: "学資保険 一括比較",
-      desc: "最大10社の学資保険を無料比較。子どもの教育費を計画的に",
-      url: "https://px.a8.net/svt/ejp?a8mat=XXXXXX8",
-      label: "無料で比較する",
-    },
-  ],
-  housing: [
-    {
-      name: "SUUMO",
-      desc: "全国の物件情報。新築・中古・賃貸を探せる",
-      url: "https://px.a8.net/svt/ejp?a8mat=XXXXXX9",
-      label: "物件を探す",
+      name: "保険スクエアbang!",
+      desc: "火災保険を無料で診断・比較。何度でも相談できる",
+      url: "https://px.a8.net/svt/ejp?a8mat=4B3GYL+63OZ02+3RU+6S3XQQ",
+      label: "無料で診断する",
     },
     {
-      name: "住宅本舗 住宅ローン比較",
-      desc: "最大20社の住宅ローンを一括比較",
-      url: "https://px.a8.net/svt/ejp?a8mat=XXXXX10",
-      label: "金利を比較する",
+      name: "インズウェブ火災保険一括見積もり",
+      desc: "最大5社に一括見積もり。保険料を比較して節約",
+      url: "https://px.a8.net/svt/ejp?a8mat=4B1G9O+AQZRZM+2PS+2BDBUB",
+      label: "無料で一括見積もり",
     },
   ],
   moving: [
     {
       name: "引越し侍",
       desc: "最大10社に一括見積もり。引越し費用を最大60%削減",
-      url: "https://px.a8.net/svt/ejp?a8mat=XXXXX11",
+      url: "https://px.a8.net/svt/ejp?a8mat=4B3GYL+4SNQ7M+ZXM+HZXMB",
       label: "無料で一括見積もりする",
     },
     {
-      name: "SUUMO引越し",
-      desc: "最大11社を一括比較。しつこい勧誘なし",
-      url: "https://px.a8.net/svt/ejp?a8mat=XXXXX12",
-      label: "無料で見積もりする",
+      name: "ハコブ引越しサービス",
+      desc: "都内の引越が最安値級。ランキング1位獲得経験あり",
+      url: "https://px.a8.net/svt/ejp?a8mat=4B3GYL+4VMW8I+4HN6+TS3OI",
+      label: "見積もりを依頼する",
     },
   ],
-  recycle: [
+  housing: [
     {
-      name: "メルカリ",
-      desc: "不用品をスマホで簡単出品。送料込みで売れやすい",
-      url: "https://px.a8.net/svt/ejp?a8mat=XXXXX13",
-      label: "無料で始める",
+      name: "ハローストレージ",
+      desc: "掲載物件数No.1のトランクルーム。荷物を安全に保管",
+      url: "https://px.a8.net/svt/ejp?a8mat=4B3GYL+4TULF6+1I9M+66WOX",
+      label: "近くの物件を探す",
+    },
+  ],
+  education: [
+    {
+      name: "アガルートアカデミー",
+      desc: "難関資格試験の通信講座。高い合格実績",
+      url: "https://px.a8.net/svt/ejp?a8mat=4AZSSX+CGWUWI+44M0+631SX",
+      label: "講座一覧を見る",
     },
     {
-      name: "ブランディア（宅配買取）",
-      desc: "ブランド品・洋服を自宅から売れる。送料無料",
-      url: "https://px.a8.net/svt/ejp?a8mat=XXXXX14",
-      label: "無料で査定する",
+      name: "オンスク.JP",
+      desc: "様々な資格学習が月額1,628円〜ウケホーダイ",
+      url: "https://px.a8.net/svt/ejp?a8mat=4B1DXP+4HXXBM+408S+60WN6",
+      label: "講座を探す",
+    },
+    {
+      name: "LEC東京リーガルマインド",
+      desc: "司法書士・行政書士など難関資格の通信講座",
+      url: "https://px.a8.net/svt/ejp?a8mat=4B1DXP+490F8Y+1G62+631SY",
+      label: "資料を請求する",
+    },
+  ],
+  family: [
+    {
+      name: "Hamic キッズケータイ",
+      desc: "見守り機能充実のキッズケータイ。子どもの安全を守る",
+      url: "https://px.a8.net/svt/ejp?a8mat=4B3GYL+43NISY+XTI+ZUQ1T",
+      label: "詳細を見る",
+    },
+    {
+      name: "MANOMA（見守りセキュリティ）",
+      desc: "ソニーのスマートホーム。子ども・高齢者の見守りに",
+      url: "https://px.a8.net/svt/ejp?a8mat=4B1OTR+9OALO2+59J2+626XT",
+      label: "資料請求する（無料）",
+    },
+  ],
+  food: [
+    {
+      name: "Kit Oisix（ミールキット）",
+      desc: "主菜・副菜2品が20分で完成。食材付きミールキット",
+      url: "https://px.a8.net/svt/ejp?a8mat=4B3G6L+728436+3RK+4MQNOH",
+      label: "お試しセットを見る",
+    },
+  ],
+  web: [
+    {
+      name: "シンレンタルサーバー",
+      desc: "自由と先進性を兼ね備えた新世代レンタルサーバー",
+      url: "https://px.a8.net/svt/ejp?a8mat=4B1OTR+AZBUGI+5GDG+60OXD",
+      label: "料金プランを見る",
     },
   ],
 };
@@ -177,19 +153,19 @@ export const MY_SITES = [
 ];
 
 export const CATEGORY_AFFILIATE_MAP: Record<string, (keyof typeof AFFILIATES)[]> = {
-  "仕事効率化": ["mobile", "kakeibo"],
-  "お金の知識": ["kakeibo", "creditcard", "securities", "insurance"],
-  "健康管理": ["insurance"],
-  "料理": ["recycle", "electricity"],
-  "住まい・掃除": ["housing", "recycle", "electricity"],
-  "育児・家族": ["education", "kakeibo"],
-  "学習": ["education", "mobile"],
-  "デジタル活用": ["mobile"],
-  "人間関係": ["kakeibo"],
+  "仕事効率化": ["web", "education"],
+  "お金の知識": ["insurance"],
+  "健康管理": ["bousai", "family"],
+  "料理": ["food"],
+  "住まい・掃除": ["housing", "moving"],
+  "育児・家族": ["family", "bousai"],
+  "学習": ["education"],
+  "デジタル活用": ["web", "education"],
+  "人間関係": ["education"],
   "防災・安全": ["bousai"],
-  "お金の基本・節約": ["kakeibo", "creditcard", "electricity", "mobile", "insurance"],
-  "副業・収入増": ["kakeibo", "creditcard", "mobile"],
-  "投資入門": ["securities", "kakeibo"],
-  "節税・確定申告": ["securities", "insurance", "kakeibo"],
-  "マインド・習慣": ["kakeibo"],
+  "お金の基本・節約": ["insurance", "moving", "housing"],
+  "副業・収入増": ["education", "web"],
+  "投資入門": ["insurance"],
+  "節税・確定申告": ["insurance"],
+  "マインド・習慣": ["education"],
 };
