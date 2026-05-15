@@ -127,8 +127,28 @@ export default async function ArticlePage({ params }: Props) {
   const careerCategories = ["仕事効率化", "学習"];
   const isCareer = careerCategories.includes(article.category);
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.excerpt,
+    datePublished: article.publishedAt ?? new Date().toISOString(),
+    author: {
+      '@type': 'Person',
+      name: '吉野幸一',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'ノウハウ図書館',
+    },
+  };
+
   return (
     <article className="max-w-3xl mx-auto bg-white rounded-2xl border border-gray-200 p-6 sm:p-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link href="/" className="text-sm text-gray-500 hover:text-gray-900">
         ← 一覧に戻る
       </Link>

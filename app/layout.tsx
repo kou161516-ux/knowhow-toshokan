@@ -3,9 +3,18 @@ import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? 'https://knowhow-toshokan.vercel.app'),
   title: "ノウハウ図書館 | 暮らし・仕事・お金の知恵",
   description:
     "仕事効率化・お金・健康・育児・防災まで、暮らしに役立つノウハウを集めた図書館。今日から使える具体的な手順を紹介します。",
+  openGraph: {
+    siteName: 'ノウハウ図書館',
+    locale: 'ja_JP',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+  },
 };
 
 export default function RootLayout({

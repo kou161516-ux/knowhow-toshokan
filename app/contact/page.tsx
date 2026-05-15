@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error" | "config-error">("idle");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -15,7 +15,16 @@ export default function ContactPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      setStatus(res.ok ? "done" : "error");
+      if (res.ok) {
+        setStatus("done");
+      } else {
+        const data = await res.json().catch(() => ({}));
+        if (data?.error === "設定エラー") {
+          setStatus("config-error");
+        } else {
+          setStatus("error");
+        }
+      }
     } catch {
       setStatus("error");
     }
@@ -77,6 +86,9 @@ export default function ContactPage() {
 
           {status === "error" && (
             <p className="text-red-600 text-sm">送信に失敗しました。時間をおいて再度お試しください。</p>
+          )}
+          {status === "config-error" && (
+            <p className="text-red-600 text-sm">現在お問い合わせフォームは使用できません。後日お試しください。</p>
           )}
 
           <button
