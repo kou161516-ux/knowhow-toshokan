@@ -2,7 +2,29 @@ import { NextRequest, NextResponse } from "next/server";
 
 const LINE_API = "https://api.line.me/v2/bot/message/push";
 
+// 簡易レート制限（メモリ内）: IP ごとに1分10回まで
+const attempts: Record<string, { count: number; resetAt: number }> = {};
+const MAX_ATTEMPTS = 10;
+const WINDOW_MS = 60 * 1000;
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  if (!attempts[ip] || attempts[ip].resetAt < now) {
+    attempts[ip] = { count: 1, resetAt: now + WINDOW_MS };
+    return true;
+  }
+  if (attempts[ip].count >= MAX_ATTEMPTS) return false;
+  attempts[ip].count++;
+  return true;
+}
+
 export async function POST(req: NextRequest) {
+  const rawIp = req.headers.get("x-forwarded-for") ?? "unknown";
+  const ip = rawIp.split(",")[0].trim();
+  if (!checkRateLimit(ip)) {
+    return NextResponse.json({ error: "送信回数が多すぎます。しばらくしてからお試しください。" }, { status: 429 });
+  }
+
   const token = process.env.LINE_CHANNEL_ACCESS_TOKEN;
   const userId = process.env.LINE_USER_ID;
 
