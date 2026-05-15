@@ -1,35 +1,93 @@
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "お問い合わせ | ノウハウ図書館",
-  description: "ノウハウ図書館へのお問い合わせページです。",
-};
+import { useState } from "react";
 
 export default function ContactPage() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      setStatus(res.ok ? "done" : "error");
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <article className="prose prose-gray max-w-3xl mx-auto">
       <h1>お問い合わせ</h1>
-
       <p>
-        ノウハウ図書館へのお問い合わせは、下記のGoogleフォームよりお送りください。
-        記事の誤情報・リンク切れ・掲載依頼などもこちらからお願いします。
-      </p>
-      <p>
-        いただいたお問い合わせには、通常3営業日以内にご返信いたします。内容によってはご返答できない場合があります。
+        記事の誤情報・リンク切れ・掲載依頼などはこちらからお送りください。
+        通常3営業日以内にご返信いたします。
       </p>
 
-      <div className="not-prose bg-amber-50 border border-amber-200 rounded-xl p-6 text-center">
-        <p className="text-gray-600 text-sm mb-4">
-          ※ お問い合わせフォームは準備中です。<br />
-          緊急の場合はサイト下部の運営者情報よりご確認ください。
-        </p>
-        <a
-          href="/about"
-          className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-lg transition-colors text-sm"
-        >
-          運営者情報を見る
-        </a>
-      </div>
+      {status === "done" ? (
+        <div className="not-prose bg-green-50 border border-green-200 rounded-xl p-6 text-center">
+          <p className="text-green-700 font-bold">送信が完了しました</p>
+          <p className="text-gray-600 text-sm mt-2">お問い合わせありがとうございます。</p>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="not-prose space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              お名前 <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              required
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              メールアドレス <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              required
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              お問い合わせ内容 <span className="text-red-500">*</span>
+            </label>
+            <textarea
+              required
+              rows={6}
+              value={form.message}
+              onChange={(e) => setForm({ ...form, message: e.target.value })}
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            />
+          </div>
+
+          {status === "error" && (
+            <p className="text-red-600 text-sm">送信に失敗しました。時間をおいて再度お試しください。</p>
+          )}
+
+          <button
+            type="submit"
+            disabled={status === "sending"}
+            className="bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-white font-bold px-6 py-3 rounded-lg transition-colors"
+          >
+            {status === "sending" ? "送信中..." : "送信する"}
+          </button>
+        </form>
+      )}
     </article>
   );
 }
