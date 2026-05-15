@@ -12,15 +12,20 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json().catch(() => null);
-  if (!body?.name || !body?.email || !body?.message) {
+  if (!body || typeof body !== "object") {
     return NextResponse.json({ error: "入力内容が不正です" }, { status: 400 });
   }
 
-  const { name, email, message } = body as {
-    name: string;
-    email: string;
-    message: string;
-  };
+  const name = String(body.name ?? "").trim();
+  const email = String(body.email ?? "").trim();
+  const message = String(body.message ?? "").trim();
+
+  if (!name || !email || !message) {
+    return NextResponse.json({ error: "入力内容が不正です" }, { status: 400 });
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return NextResponse.json({ error: "メールアドレスの形式が正しくありません" }, { status: 400 });
+  }
 
   const lineMessage = [
     "📬 ノウハウ図書館 お問い合わせ",
@@ -42,8 +47,7 @@ export async function POST(req: NextRequest) {
   });
 
   if (!res.ok) {
-    const err = await res.text();
-    console.error("LINE API error:", err);
+    console.error("LINE API error - status:", res.status);
     return NextResponse.json({ error: "送信に失敗しました" }, { status: 502 });
   }
 
