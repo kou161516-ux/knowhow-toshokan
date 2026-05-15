@@ -25,6 +25,15 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "送信回数が多すぎます。しばらくしてからお試しください。" }, { status: 429 });
   }
 
+  const origin = req.headers.get('origin') ?? ''
+  const allowedOrigins = [
+    process.env.NEXT_PUBLIC_BASE_URL ?? '',
+    'https://knowhow-toshokan.vercel.app',
+  ].filter(Boolean)
+  if (origin && !allowedOrigins.some(o => origin.startsWith(o))) {
+    return NextResponse.json({ error: '不正なリクエストです' }, { status: 403 });
+  }
+
   const token = process.env.LINE_CHANNEL_ACCESS_TOKEN;
   const userId = process.env.LINE_USER_ID;
 
@@ -44,6 +53,15 @@ export async function POST(req: NextRequest) {
 
   if (!name || !email || !message) {
     return NextResponse.json({ error: "入力内容が不正です" }, { status: 400 });
+  }
+  if (name.length > 100) {
+    return NextResponse.json({ error: 'お名前は100文字以内で入力してください' }, { status: 400 });
+  }
+  if (email.length > 254) {
+    return NextResponse.json({ error: 'メールアドレスが長すぎます' }, { status: 400 });
+  }
+  if (message.length > 2000) {
+    return NextResponse.json({ error: 'お問い合わせ内容は2000文字以内で入力してください' }, { status: 400 });
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return NextResponse.json({ error: "メールアドレスの形式が正しくありません" }, { status: 400 });

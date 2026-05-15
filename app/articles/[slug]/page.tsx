@@ -18,6 +18,16 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: `${article.title} | ノウハウ図書館`,
     description: article.excerpt,
+    openGraph: {
+      title: article.title,
+      description: article.excerpt,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary',
+      title: article.title,
+      description: article.excerpt,
+    },
   };
 }
 

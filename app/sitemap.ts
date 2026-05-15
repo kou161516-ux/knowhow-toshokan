@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { articles } from "@/data/articles";
 
-const BASE_URL = "https://knowhow-toshokan.vercel.app";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://knowhow-toshokan.vercel.app';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
